@@ -2,6 +2,7 @@ package Error
 
 import "errors"
 
+// MultiLogger implementation of logger interface methods
 type MultiLogger interface {
 	Debugf(template string, args ...interface{})
 	Infof(template string, args ...interface{})
@@ -10,6 +11,7 @@ type MultiLogger interface {
 	Sync() error
 }
 
+// Some type of errors, can be expanded too
 var (
 	// ErrInternalServerError will throw if any the Internal Server Error happen
 	ErrInternalServerError = errors.New("Internal Server Error")
@@ -29,21 +31,24 @@ const (
 	ErrAtoi            = "func Atoi convert string in int"
 )
 
+// ResultError another version sending struct for http req
 type ResultError struct {
 	Status  int    `json:"status"`
 	Explain string `json:"explain,omitempty"`
 }
 
+// Errors another version of errors struct
 type Errors struct {
 	Alias string
 	Text  string
 }
 
+// Error method to return Alias of error
 func (e *Errors) Error() string {
 	return e.Alias
 }
 
+// CheckError struct with MultiLogger, can add another loggers or smth else
 type CheckError struct {
 	Logger MultiLogger
 }
-

@@ -10,6 +10,7 @@ import (
 	"strconv"
 )
 
+// API struct for entrypoint level
 type API struct {
 	Application Interface.UserApplication
 	Logger      errPkg.MultiLogger
@@ -36,6 +37,7 @@ func (A API) SearchUsersHandler(c echo.Context) error {
 	return c.JSON(http.StatusOK, userArray)
 }
 
+// GetUserHandler API handler to get user by ID.
 func (A API) GetUserHandler(c echo.Context) error {
 	idP, err := strconv.Atoi(c.Param("id"))
 	if err != nil {
@@ -58,6 +60,7 @@ func (A API) GetUserHandler(c echo.Context) error {
 	return c.JSON(http.StatusOK, user)
 }
 
+// UpdateUserHandler API handler to update user level.
 func (A API) UpdateUserHandler(c echo.Context) error {
 	var updateUserStruct User.UpdateUserRequest
 	err := c.Bind(&updateUserStruct)
@@ -84,6 +87,7 @@ func (A API) UpdateUserHandler(c echo.Context) error {
 	return c.JSON(http.StatusOK, nil)
 }
 
+// isRequestValid just checks if request is valid
 func isRequestValid(m *User.CreateUserRequest) (bool, error) {
 	validate := validator.New()
 	err := validate.Struct(m)
@@ -121,6 +125,7 @@ func (A API) CreateUserHandler(c echo.Context) error {
 	return c.JSON(http.StatusCreated, id)
 }
 
+// DeleteUserHandler API handler to delete user.
 func (A API) DeleteUserHandler(c echo.Context) error {
 	idP, err := strconv.Atoi(c.Param("id"))
 	if err != nil {

@@ -12,13 +12,14 @@ import (
 )
 
 const (
-	ConfNameMain   = "main"
-	ConfNameDB     = "database"
-	ConfNameURLS   =  "urls"
-	ConfType       = "yml"
-	ConfPath       = "./config/"
+	ConfNameMain = "main"
+	ConfNameDB   = "database"
+	ConfNameURLS = "urls"
+	ConfType     = "yml"
+	ConfPath     = "./config/"
 )
 
+// InitConfig function to initialize structures
 func InitConfig() (error, []interface{}) {
 	viper.AddConfigPath(ConfPath)
 	viper.SetConfigType(ConfType)
@@ -91,27 +92,28 @@ func InitConfig() (error, []interface{}) {
 	return nil, result
 }
 
+// SetUp setting up user essence
 func SetUp(connectionDB Interface.ConnectionInterface, logger errPkg.MultiLogger) []interface{} {
 	UserWrapper := UserStore.Store{Conn: connectionDB}
 	UserApp := UserApplication.Application{Store: &UserWrapper}
-	userInfo := UserAPI.API {
+	userInfo := UserAPI.API{
 		Application: &UserApp,
 		Logger:      logger,
 	}
 
-	var _ Interface.UserAPI= &userInfo
-	
+	var _ Interface.UserAPI = &userInfo
+
 	var result []interface{}
 	result = append(result, userInfo)
 
 	return result
 }
 
+// CreateDb Creating data base structure
 func CreateDb(dbName string) (*db.Driver, error) {
-	conn, err:=db.New(dbName)
+	conn, err := db.New(dbName)
 	if err != nil {
 		panic(err)
 	}
 	return conn, nil
 }
-

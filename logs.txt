@@ -18,3 +18,5 @@
 2021-11-25T16:36:59.602+0300	INFO	Middleware/API.go:25	Method: POST, URL: /api/v1/users/, from: localhost:5000 - 200, requestId: 2
 2021-11-25T16:37:06.941+0300	INFO	Middleware/API.go:25	Method: DELETE, URL: /api/v1/users/3/, from: localhost:5000 - 200, requestId: 3
 2021-11-25T16:37:06.942+0300	ERROR	Error/CheckErrorsUser.go:12	record not foundrecord not found
+2021-11-25T22:13:31.871+0300	INFO	Middleware/API.go:25	Method: DELETE, URL: /api/v1/users/3/, from: localhost:5000 - 200, requestId: 1
+2021-11-25T22:13:31.871+0300	ERROR	Error/CheckErrorsUser.go:12	record not foundrecord not found

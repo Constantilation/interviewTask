@@ -4,12 +4,13 @@ import (
 	"net/http"
 )
 
-func (c CheckError) CheckErrorsUser(errIn error) (int) {
+// CheckErrorsUser method to check some errors, can be used as middleware, also can be expanded with a lot of errors
+func (c CheckError) CheckErrorsUser(errIn error) int {
 	if errIn == nil {
 		return http.StatusOK
 	}
 
-	c.Logger.Errorf("",errIn.Error(), errIn)
+	c.Logger.Errorf("", errIn.Error(), errIn)
 	switch errIn {
 	case ErrInternalServerError:
 		return http.StatusInternalServerError

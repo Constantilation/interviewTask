@@ -5,6 +5,7 @@ import (
 	"strconv"
 )
 
+// InterfaceConvertInt just some type of utils func, didn't use it in project
 func InterfaceConvertInt(value interface{}) (int, error) {
 	var intConvert int
 	var errorConvert error

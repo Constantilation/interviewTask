@@ -7,10 +7,12 @@ import (
 	errors "interviewTask/internal/Middleware/Error"
 )
 
+// Logger is struct for logger interface
 type Logger struct {
 	Log errors.MultiLogger
 }
 
+// NewLogger setting new zap logger
 func NewLogger(filePath string) *zap.SugaredLogger {
 	configLog := zap.NewProductionEncoderConfig()
 	configLog.TimeKey = "time_stamp"

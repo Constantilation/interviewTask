@@ -19,6 +19,7 @@ type (
 	}
 )
 
+// ID implementation of func for database library
 func (u UserStore) ID() (jsonField string, value interface{}) {
 	value = u.CustID
 	jsonField = "custid2"

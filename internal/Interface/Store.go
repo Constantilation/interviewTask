@@ -7,6 +7,7 @@ import (
 	"interviewTask/internal/domain"
 )
 
+// ConnectionInterface implementation of database methods interface
 type ConnectionInterface interface {
 	Open(entity simdb.Entity) *simdb.Driver
 	Errors() []error
@@ -22,6 +23,7 @@ type ConnectionInterface interface {
 	Delete(entity simdb.Entity) (err error)
 }
 
+// UserStore implementation of Store interface methods
 type UserStore interface {
 	SearchUsers(ctx context.Context) (domain.UserList, error)
 	GetUser(ctx context.Context, id int64) (domain.User, error)

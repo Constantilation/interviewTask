@@ -8,10 +8,12 @@ import (
 	"strconv"
 )
 
+// Store struct for entity level
 type Store struct {
 	Conn Interface.ConnectionInterface
 }
 
+// SearchUsers represent the store method to search users
 func (s Store) SearchUsers(ctx context.Context) (domain.UserList, error) {
 	var users domain.UserStore
 	err := s.Conn.Open(domain.UserStore{}).Where("custid1", "=", "CUSTID1").First().AsEntity(&users)
@@ -22,6 +24,7 @@ func (s Store) SearchUsers(ctx context.Context) (domain.UserList, error) {
 	return users.List, nil
 }
 
+// GetUser represent the store method to get user by id
 func (s Store) GetUser(ctx context.Context, id int64) (domain.User, error) {
 	var users domain.UserStore
 	err := s.Conn.Open(domain.UserStore{}).Where("custid1", "=", "CUSTID1").First().AsEntity(&users)
@@ -36,6 +39,7 @@ func (s Store) GetUser(ctx context.Context, id int64) (domain.User, error) {
 	return users.List["0"], err
 }
 
+// UpdateUser represent the store method to update user info
 func (s Store) UpdateUser(ctx context.Context, u *User.UpdateUserRequest, id int) error {
 	var users domain.UserStore
 	users.List = make(map[string]domain.User)
@@ -61,6 +65,7 @@ func (s Store) UpdateUser(ctx context.Context, u *User.UpdateUserRequest, id int
 	return nil
 }
 
+// CreateUser represent the store method to create new user
 func (s Store) CreateUser(ctx context.Context, user domain.User) (error, int) {
 	var users domain.UserStore
 	users.List = make(map[string]domain.User)
@@ -90,6 +95,7 @@ func (s Store) CreateUser(ctx context.Context, user domain.User) (error, int) {
 	return nil, users.Increment
 }
 
+// DeleteUser represent the store method to delete user from store
 func (s Store) DeleteUser(ctx context.Context, id int64) error {
 	var users domain.UserStore
 	users.List = make(map[string]domain.User)

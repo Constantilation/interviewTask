@@ -2,6 +2,7 @@ package Interface
 
 import "github.com/labstack/echo"
 
+// UserAPI implementation of user API interface
 type UserAPI interface {
 	SearchUsersHandler(c echo.Context) error
 	GetUserHandler(c echo.Context) error

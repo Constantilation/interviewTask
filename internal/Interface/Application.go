@@ -6,6 +6,7 @@ import (
 	"interviewTask/internal/domain"
 )
 
+// UserApplication implementation of user Application interface
 type UserApplication interface {
 	SearchUsers(ctx context.Context) (domain.UserList, error)
 	GetUser(ctx context.Context, id int64) (domain.User, error)

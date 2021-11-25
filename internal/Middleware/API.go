@@ -11,11 +11,13 @@ type GoMiddleware struct {
 	// another stuff , may be needed by middleware
 }
 
+// InfoMiddleware middleware struct to logs
 type InfoMiddleware struct {
-	Logger      errPkg.MultiLogger
-	ReqId       int
+	Logger errPkg.MultiLogger
+	ReqId  int
 }
 
+// LogURL method for logging info/errors
 func (m *InfoMiddleware) LogURL(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(c echo.Context) error {
 		if m.ReqId == math.MaxInt {
@@ -39,4 +41,3 @@ func (m *GoMiddleware) CORS(next echo.HandlerFunc) echo.HandlerFunc {
 func InitMiddleware() *GoMiddleware {
 	return &GoMiddleware{}
 }
-
