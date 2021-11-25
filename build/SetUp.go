@@ -5,7 +5,7 @@ import (
 	"github.com/spf13/viper"
 	"interviewTask/config"
 	"interviewTask/internal/Interface"
-	errPkg "interviewTask/internal/MyError"
+	errPkg "interviewTask/internal/Middleware/Error"
 	UserAPI "interviewTask/internal/User/API"
 	UserApplication "interviewTask/internal/User/Application"
 	"interviewTask/internal/User/Store"
@@ -109,7 +109,7 @@ func SetUp(connectionDB Interface.ConnectionInterface, logger errPkg.MultiLogger
 
 func CreateDb(dbName string) (*db.Driver, error) {
 	conn, err:=db.New(dbName)
-	if err!=nil {
+	if err != nil {
 		panic(err)
 	}
 	return conn, nil

@@ -1,1 +1,20 @@
-2021-11-24T16:34:30.434+0300	ERROR	app/main.go:53	Listen and server error: listen tcp: address 5000: missing port in address
+2021-11-25T15:24:02.052+0300	INFO	Middleware/API.go:25	Method: PATCH, URL: /api/v1/users/1/, from: localhost:5000 - 200, requestId: 1
+2021-11-25T15:24:08.900+0300	INFO	Middleware/API.go:25	Method: POST, URL: /api/v1/users/, from: localhost:5000 - 200, requestId: 2
+2021-11-25T15:24:31.687+0300	INFO	Middleware/API.go:25	Method: PATCH, URL: /api/v1/users/1/, from: localhost:5000 - 200, requestId: 3
+2021-11-25T15:47:24.466+0300	INFO	Middleware/API.go:25	Method: PATCH, URL: /api/v1/users/1/, from: localhost:5000 - 200, requestId: 1
+2021-11-25T15:53:27.056+0300	INFO	Middleware/API.go:25	Method: GET, URL: /api/v1/users/1/, from: localhost:5000 - 200, requestId: 1
+2021-11-25T15:53:32.278+0300	INFO	Middleware/API.go:25	Method: GET, URL: /api/v1/users/0/, from: localhost:5000 - 200, requestId: 2
+2021-11-25T15:54:26.219+0300	INFO	Middleware/API.go:25	Method: GET, URL: /api/v1/users/, from: localhost:5000 - 200, requestId: 1
+2021-11-25T15:54:26.220+0300	ERROR	Error/CheckErrorsUser.go:12	json: cannot unmarshal object into Go value of type []domain.UserStorejson: cannot unmarshal object into Go value of type []domain.UserStore
+2021-11-25T15:58:09.790+0300	INFO	Middleware/API.go:25	Method: GET, URL: /api/v1/users/, from: localhost:5000 - 200, requestId: 1
+2021-11-25T15:58:38.970+0300	INFO	Middleware/API.go:25	Method: GET, URL: /api/v1/users/0/, from: localhost:5000 - 200, requestId: 2
+2021-11-25T15:58:43.454+0300	INFO	Middleware/API.go:25	Method: GET, URL: /api/v1/users/1/, from: localhost:5000 - 200, requestId: 3
+2021-11-25T15:58:48.701+0300	INFO	Middleware/API.go:25	Method: GET, URL: /api/v1/users/1/, from: localhost:5000 - 200, requestId: 4
+2021-11-25T16:05:48.073+0300	INFO	Middleware/API.go:25	Method: DELETE, URL: /api/v1/users/1/, from: localhost:5000 - 200, requestId: 1
+2021-11-25T16:10:33.430+0300	INFO	Middleware/API.go:25	Method: DELETE, URL: /api/v1/users/2/, from: localhost:5000 - 200, requestId: 1
+2021-11-25T16:10:50.844+0300	INFO	Middleware/API.go:25	Method: DELETE, URL: /api/v1/users/3/, from: localhost:5000 - 200, requestId: 2
+2021-11-25T16:34:30.316+0300	INFO	Middleware/API.go:25	Method: POST, URL: /api/v1/users/, from: localhost:5000 - 200, requestId: 1
+2021-11-25T16:36:49.649+0300	INFO	Middleware/API.go:25	Method: POST, URL: /api/v1/users/, from: localhost:5000 - 200, requestId: 1
+2021-11-25T16:36:59.602+0300	INFO	Middleware/API.go:25	Method: POST, URL: /api/v1/users/, from: localhost:5000 - 200, requestId: 2
+2021-11-25T16:37:06.941+0300	INFO	Middleware/API.go:25	Method: DELETE, URL: /api/v1/users/3/, from: localhost:5000 - 200, requestId: 3
+2021-11-25T16:37:06.942+0300	ERROR	Error/CheckErrorsUser.go:12	record not foundrecord not found

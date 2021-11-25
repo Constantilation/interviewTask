@@ -1,31 +1,26 @@
 package domain
 
 import (
-	"context"
 	"time"
 )
 
 // User struct
-type User struct {
-CreatedAt   time.Time `json:"created_at"`
-DisplayName string    `json:"display_name"`
-Email       string    `json:"email"`
-}
+type (
+	User struct {
+		CreatedAt   time.Time `json:"created_at"`
+		DisplayName string    `json:"display_name"`
+		Email       string    `json:"email"`
+	}
+	UserList  map[string]User
+	UserStore struct {
+		CustID    string   `json:"custid1"`
+		Increment int      `json:"increment"`
+		List      UserList `json:"list"`
+	}
+)
 
-// UserUsecase represent the article's usecases
-type UserUsecase interface {
-	SearchUsers(ctx context.Context, cursor string, num int64) ([]User, string, error)
-	GetUser(ctx context.Context, id int64) (User, error)
-	UpdateUser(ctx context.Context, ar *User) error
-	CreateUser(context.Context, *User) error
-	DeleteUser(ctx context.Context, id int64) error
-}
-
-// UserRepository represent the user's repository contract
-type UserRepository interface {
-	SearchUsers(ctx context.Context, cursor string, num int64) ([]User, string, error)
-	GetUser(ctx context.Context, id int64) (User, error)
-	UpdateUser(ctx context.Context, ar *User) error
-	CreateUser(context.Context, *User) error
-	DeleteUser(ctx context.Context, id int64) error
+func (u UserStore) ID() (jsonField string, value interface{}) {
+	value = u.CustID
+	jsonField = "custid2"
+	return
 }

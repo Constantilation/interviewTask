@@ -4,7 +4,7 @@ import (
 	"github.com/natefinch/lumberjack"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	errors "interviewTask/internal/MyError"
+	errors "interviewTask/internal/Middleware/Error"
 )
 
 type Logger struct {

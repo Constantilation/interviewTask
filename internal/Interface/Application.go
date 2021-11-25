@@ -1,13 +1,15 @@
 package Interface
 
 import (
+	"context"
 	"interviewTask/internal/User"
+	"interviewTask/internal/domain"
 )
 
 type UserApplication interface {
-	SearchUsers() error
-	GetUser(id int) error
-	UpdateUser(userUpdate *User.UpdateUserRequest) error
-	CreateUser(userGet *User.CreateUserRequest) error
-	DeleteUser(id int) error
+	SearchUsers(ctx context.Context) (domain.UserList, error)
+	GetUser(ctx context.Context, id int64) (domain.User, error)
+	UpdateUser(ctx context.Context, u *User.UpdateUserRequest, id int) error
+	CreateUser(context.Context, *User.CreateUserRequest) (error, map[string]interface{})
+	DeleteUser(ctx context.Context, id int64) error
 }

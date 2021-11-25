@@ -2,12 +2,13 @@ package main
 
 import (
 	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
 	"go.uber.org/zap"
 	build "interviewTask/build"
 	"interviewTask/config"
 	"interviewTask/internal/Interface"
 	"interviewTask/internal/Middleware"
-	errors "interviewTask/internal/MyError"
+	errors "interviewTask/internal/Middleware/Error"
 	UserAPI "interviewTask/internal/User/API"
 	utils "interviewTask/internal/Util"
 	"os"
@@ -44,8 +45,13 @@ func runServer() {
 	userInfo := startStructure[0].(Interface.UserAPI)
 
 	e := echo.New()
+	e.Pre(middleware.AddTrailingSlash())
 	middl := Middleware.InitMiddleware()
+	logInfo := Middleware.InfoMiddleware{
+		Logger: logger.Log,
+	}
 	e.Use(middl.CORS)
+	e.Use(logInfo.LogURL)
 	UserAPI.NewUserHandler(e, userInfo, urlsConfig.URLS.Name)
 
 	err = e.Start(appConfig.Port)
