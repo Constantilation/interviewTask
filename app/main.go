@@ -16,7 +16,7 @@ import (
 
 func runServer() {
 	var logger utils.Logger
-	logger.Log = utils.NewLogger("./logs.txt")
+	logger.Log = utils.NewLogger("logs.txt")
 
 	defer func(loggerErrWarn errors.MultiLogger) {
 		errLogger := loggerErrWarn.Sync()

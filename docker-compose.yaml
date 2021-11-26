@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: user_management_api
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./config/database.yml:/app/database.yml
+      - ./config/main.yml:/app/main.yml
+      - ./config/urls.yml:/app/urls.yml

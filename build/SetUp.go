@@ -16,7 +16,7 @@ const (
 	ConfNameDB   = "database"
 	ConfNameURLS = "urls"
 	ConfType     = "yml"
-	ConfPath     = "./config/"
+	ConfPath     = "."
 )
 
 // InitConfig function to initialize structures

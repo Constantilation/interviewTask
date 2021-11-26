@@ -72,6 +72,7 @@ func (s Store) CreateUser(ctx context.Context, user domain.User) (error, int) {
 	err := s.Conn.Open(domain.UserStore{}).Where("custid1", "=", "CUSTID1").First().AsEntity(&users)
 	if err != nil {
 		users.Increment++
+		users.CustID = "CUSTID1"
 		users.List[strconv.Itoa(users.Increment)] = user
 		err = s.Conn.Insert(users)
 		if err != nil {
