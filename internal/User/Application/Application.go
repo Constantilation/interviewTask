@@ -10,16 +10,12 @@ import (
 
 // Application struct for use cases level
 type Application struct {
-	Store          Interface.UserStore
-	contextTimeout time.Duration
+	Store Interface.UserStore
 }
 
 // SearchUsers represent the application method to search users
 func (a Application) SearchUsers(ctx context.Context) (domain.UserList, error) {
-	ctxApp, cancel := context.WithTimeout(ctx, a.contextTimeout)
-	defer cancel()
-
-	res, err := a.Store.SearchUsers(ctxApp)
+	res, err := a.Store.SearchUsers(ctx)
 	if err != nil {
 		return nil, err
 	}

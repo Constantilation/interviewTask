@@ -158,5 +158,4 @@ func NewUserHandler(e *echo.Echo, handler Interface.UserAPI, url string) {
 	ug2.GET("/", handler.GetUserHandler)
 	ug2.PATCH("/", handler.UpdateUserHandler)
 	ug2.DELETE("/", handler.DeleteUserHandler)
-
 }
